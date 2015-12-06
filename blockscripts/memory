@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "$(awk '/^Mem/ {printf($3 "/" $2 " MB");}' <(free -m))"
+

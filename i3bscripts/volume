@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+VOLUME=`(pactl list sinks | grep  "Volume: 0:")| tail -c 10|  awk '{print $3}'`
+
+
+MUTE=`(pactl list sinks | grep  "Mute")| tail -c 10|  awk '{print $2}'` 
+
+if [ $MUTE == "yes" ]; then
+  echo "Mute"
+else
+  echo $VOLUME
+fi
